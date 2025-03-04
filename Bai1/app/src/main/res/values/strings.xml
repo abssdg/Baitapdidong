@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="hcm_vietnam">HCM VietNam</string>
+    <string name="ho_ng_ph_c">Hoàng Phúc</string>
+    <string name="todo">TODO</string>
+    <string name="arrow">TODO</string>
+    <string name="avata">avata\n</string>
+    <string name="text">text</string>
+    <string name="avatar" />
+</resources>
