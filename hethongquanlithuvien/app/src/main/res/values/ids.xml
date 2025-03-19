@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <item name="chkSach1" type="id" />
-    <item name="chkSach1" type="id" />
-    <item name="chkSach1" type="id" />
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <item name="chkSach1" type="id" tools:ignore="DuplicateDefinition" />
+    <item name="chkSach2" type="id" tools:ignore="DuplicateDefinition" />
 </resources>
