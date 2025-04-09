@@ -19,6 +19,7 @@ import com.example.mvvm.ui.screen.home.HomeViewModel
 
 @Composable
 fun AddTaskScreen(
+    HomeViewModel: HomeViewModel,
     onAddTask: (String, String) -> Unit,
     onBack: () -> Unit,
     navController: NavController,
@@ -59,13 +60,12 @@ fun AddTaskScreen(
             Spacer(modifier = Modifier.height(16.dp))
             Button(
                 onClick = {
-                    if (title.isNotBlank() && description.isNotBlank()) {
-                        onAddTask(title, description)
+                    HomeViewModel.handleAddTask(title, description) {
                         onBack()
                     }
                 },
-                shape = RoundedCornerShape(50), // bo tròn
-                colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFF2196F3)), // màu xanh
+                shape = RoundedCornerShape(50),
+                colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFF2196F3)),
                 contentPadding = PaddingValues(horizontal = 24.dp, vertical = 8.dp),
                 modifier = Modifier.align(Alignment.CenterHorizontally)
             ) {

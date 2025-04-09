@@ -15,17 +15,15 @@ import com.example.mvvm.ui.screen.home.HomeViewModel
 @Composable
 fun NavGraph() {
     val navController: NavHostController = rememberNavController()
-    // Lấy instance ViewModel (đơn giản không dùng Hilt ở ví dụ này)
     val homeViewModel: HomeViewModel = viewModel()
 
     NavHost(navController = navController, startDestination = "home") {
         composable("home") {
             HomeScreen(
-                navController = navController, // thêm dòng này
+                navController = navController,
                 viewModel = homeViewModel,
                 onAddTaskClick = { navController.navigate("addTask") },
                 onTaskClick = { task: Task ->
-                    // Bạn có thể chuyển đến màn hình chi tiết hoặc cập nhật khi nhấn một task
                 }
             )
         }
@@ -35,7 +33,8 @@ fun NavGraph() {
                     homeViewModel.addTask(title, description)
                 },
                 onBack = { navController.popBackStack() },
-                navController = navController, // 👈 Thêm dòng này để truyền vào
+                navController = navController,
+                HomeViewModel = homeViewModel
             )
         }
     }

@@ -10,10 +10,10 @@ data class Task(
 )
 
 val pastelColors = listOf(
-    Color(0xFFBBDEFB), // xanh nhạt
-    Color(0xFFF8BBD0), // hồng nhạt
-    Color(0xFFDCE775), // vàng nhạt
-    Color(0xFFFFF9C4), // kem nhạt
-    Color(0xFFE1BEE7)  // tím nhạt
+    Color(0xFFBBDEFB),
+    Color(0xFFF8BBD0),
+    Color(0xFFDCE775),
+    Color(0xFFFFF9C4),
+    Color(0xFFE1BEE7)
 )
 

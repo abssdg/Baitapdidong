@@ -19,7 +19,7 @@ import androidx.navigation.NavController
 @Composable
 fun BottomNavBar(
     navController: NavController,
-    onFabClick: () -> Unit // thêm tham số để xử lý click nút thêm
+    onFabClick: () -> Unit
 ) {
     val documentIcon = getDocumentIcon()
 
@@ -39,7 +39,6 @@ fun BottomNavBar(
             .padding(8.dp),
         contentAlignment = Alignment.BottomCenter,
     ) {
-        // Background của Bottom Navigation
         Surface(
             color = Color.White,
             shadowElevation = 8.dp,
@@ -48,7 +47,6 @@ fun BottomNavBar(
                 .fillMaxWidth()
                 .height(64.dp)
         ) {
-            // Navigation Items
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -58,7 +56,7 @@ fun BottomNavBar(
             ) {
                 items.forEachIndexed { index, item ->
                     if (index == items.size / 2) {
-                        Spacer(modifier = Modifier.width(56.dp)) // Chừa chỗ cho FAB
+                        Spacer(modifier = Modifier.width(56.dp))
                     }
                     IconButton(
                         onClick = {
@@ -77,9 +75,8 @@ fun BottomNavBar(
             }
         }
 
-        // Floating Action Button
         FloatingActionButton(
-            onClick = onFabClick, // khi nhấn gọi callback
+            onClick = onFabClick,
             containerColor = Color(0xFF2196F3),
             shape = CircleShape,
             modifier = Modifier

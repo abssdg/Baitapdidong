@@ -1,6 +1,7 @@
 package com.example.mvvm.ui.screen.home
 
 
+import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.mvvm.data.model.Task
@@ -11,7 +12,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
 class HomeViewModel(
-    private val repository: TaskRepository = TaskRepositoryImpl() // Dùng in-memory repository
+    private val repository: TaskRepository = TaskRepositoryImpl()
 ) : ViewModel() {
 
     private val _taskList = MutableStateFlow<List<Task>>(emptyList())
@@ -44,6 +45,17 @@ class HomeViewModel(
     fun deleteTask(task: Task) {
         viewModelScope.launch {
             repository.deleteTask(task)
+        }
+    }
+
+    fun handleAddTask(
+        title: String,
+        description: String,
+        onSuccess: () -> Unit
+    ) {
+        if (title.isNotBlank() && description.isNotBlank()) {
+            addTask(title, description)
+            onSuccess()
         }
     }
 }
